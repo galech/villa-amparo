@@ -1,0 +1,39 @@
+<div [hidden]="onGroupCreation" class="row">
+	<div class="pull-right" >
+	   <button class="btn" (click)="groupList()">Grup list</button> 
+	   <button class="btn"(click)="newGroup()">New group</button>
+	</div>  
+</div>
+
+<div [hidden]="!onGroupCreation" class="row">
+	<div class="pull-right" >
+	  <button (click)="createGroup(newGroupName.value)">Add</button>
+	</div>  
+</div>
+
+<div>	
+
+
+	
+	<ul [hidden]="onGroupCreation" [ngClass] = "'home'">
+	
+      <input (keyup)="searchTextChange($event)">		
+	
+	  <li [attr.id]="group._id" [class.current]="group == currentGroup" *ngFor="let group of filteredGroups" >
+			 {{groups.indexOf(group)+1}} Name: {{group.text}} {{group._id}}
+		<a [routerLink]="['/group-edition', group.id]">View Detail</a>
+	  </li>
+	</ul> 
+	
+	
+
+	
+	<div [hidden]="!onGroupCreation">
+		<input #newGroupName>
+		  
+
+	</div>	
+	  
+	
+</div> 
+

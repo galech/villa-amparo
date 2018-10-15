@@ -1,0 +1,12 @@
+
+<h2>Book Details CACA</h2>
+<ul [ngClass] = "'home'">
+  <li *ngFor="let group of groups" >
+		 Id: {{group.id}}, Name: {{group.text}} | 
+	<a [routerLink]="['/group-edition', group.id]">View Detail</a>
+  </li>
+</ul> 
+
+
+
+
